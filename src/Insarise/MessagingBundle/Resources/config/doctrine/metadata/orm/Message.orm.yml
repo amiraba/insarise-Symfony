@@ -1,0 +1,63 @@
+Message:
+    type: entity
+    table: message
+    indexes:
+        fk_emetteur:
+            columns:
+                - id_emetteur_mes
+        fk_destinataire:
+            columns:
+                - id_destinataire_mes
+    id:
+        idMes:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_mes
+            generator:
+                strategy: IDENTITY
+    fields:
+        idEmetteurMes:
+            type: integer
+            nullable: false
+            unsigned: true
+            column: id_emetteur_mes
+        typeEmetteurMes:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            column: type_emetteur_mes
+        idDestinataireMes:
+            type: integer
+            nullable: false
+            unsigned: true
+            column: id_destinataire_mes
+        typeDestinataireMes:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            column: type_destinataire_mes
+        titreMes:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: titre_mes
+        contenuMes:
+            type: text
+            nullable: true
+            length: 65535
+            fixed: false
+            column: contenu_mes
+        dateenvoiMes:
+            type: date
+            nullable: true
+            column: dateenvoi_mes
+        datelectureMes:
+            type: date
+            nullable: true
+            column: datelecture_mes
+    lifecycleCallbacks: {  }

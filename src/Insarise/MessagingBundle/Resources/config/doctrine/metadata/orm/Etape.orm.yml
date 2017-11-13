@@ -1,0 +1,72 @@
+Etape:
+    type: entity
+    table: etape
+    indexes:
+        fk_etape_projet:
+            columns:
+                - id_proj_et
+        fk_etape_entreprise:
+            columns:
+                - id_ent_et
+        fk_etape_etud:
+            columns:
+                - id_cand_et
+    id:
+        idEt:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_et
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomEt:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: nom_et
+        descriptionEt:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: description_et
+        dateAchevementEt:
+            type: date
+            nullable: true
+            column: date_achevement_et
+        datevalidationEt:
+            type: date
+            nullable: true
+            column: datevalidation_et
+    manyToOne:
+        idEntEt:
+            targetEntity: Entreprise
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_ent_et:
+                    referencedColumnName: id_ent
+            orphanRemoval: false
+        idCandEt:
+            targetEntity: Candidat
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_cand_et:
+                    referencedColumnName: id_cand
+            orphanRemoval: false
+        idProjEt:
+            targetEntity: Projet
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_proj_et:
+                    referencedColumnName: id_proj
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

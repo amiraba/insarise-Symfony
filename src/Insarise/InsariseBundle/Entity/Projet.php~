@@ -1,0 +1,93 @@
+<?php
+
+namespace Insarise\InsariseBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Projet
+ *
+ * @ORM\Table(name="projet", indexes={@ORM\Index(name="fk_projet_ent", columns={"id_ent_proj"})})
+ * @ORM\Entity
+ */
+class Projet
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_proj", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idProj;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_cand_proj", type="integer", nullable=true)
+     */
+    private $idCandProj;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_proj", type="string", length=50, nullable=true)
+     */
+    private $nomProj;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description_proj", type="text", length=65535, nullable=true)
+     */
+    private $descriptionProj;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="statut_proj", type="string", nullable=false)
+     */
+    private $statutProj;
+
+    /**
+     * @var \Entreprise
+     *
+     * @ORM\ManyToOne(targetEntity="Entreprise")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_ent_proj", referencedColumnName="id_ent")
+     * })
+     */
+    private $idEntProj;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Moderateur", mappedBy="idProjAp")
+     */
+    private $idModAp;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Competence", inversedBy="idProjPc")
+     * @ORM\JoinTable(name="projet_competence",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_proj_pc", referencedColumnName="id_proj")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_com_pc", referencedColumnName="id_com")
+     *   }
+     * )
+     */
+    private $idComPc;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idModAp = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idComPc = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

@@ -1,0 +1,83 @@
+Etudiant:
+    type: entity
+    table: etudiant
+    indexes:
+        fk_estdetype:
+            columns:
+                - type_etud
+    id:
+        idEtud:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_etud
+            generator:
+                strategy: IDENTITY
+    fields:
+        loginEtud:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: login_etud
+        passwordEtud:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: password_etud
+        nomEtud:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: nom_etud
+        prenomEtud:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: prenom_etud
+        emailEtud:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: email_etud
+        telephoneEtud:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: telephone_etud
+        adresseEtud:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            column: adresse_etud
+        typeEtud:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            column: type_etud
+    manyToMany:
+        idComEc:
+            targetEntity: Competence
+            cascade: {  }
+            mappedBy: null
+            inversedBy: idEtudEc
+            joinTable:
+                name: etudiant_competence
+                joinColumns:
+                    -
+                        name: id_etud_ec
+                        referencedColumnName: id_etud
+                inverseJoinColumns:
+                    -
+                        name: id_com_ec
+                        referencedColumnName: id_com
+            orderBy: null
+    lifecycleCallbacks: {  }

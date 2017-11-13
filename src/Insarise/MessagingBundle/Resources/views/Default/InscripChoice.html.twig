@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InsaRise</title>
+
+     <link rel='stylesheet' href="{{ asset('bundles/insarise/assets/css/bootstrap.css') }}"> 
+     <link  rel='stylesheet' href="{{ asset('bundles/insarise/assets/css/font-awesome.css') }}"> 
+      <link rel='stylesheet' href="{{ asset('bundles/insarise/assets/js/morris/morris-0.4.3.min.css') }}"> 
+     <link rel='stylesheet' href="{{ asset('bundles/insarise/assets/css/custom.css') }}">
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <style type="text/css">
+$color: #999;
+$color-bg: #eaeaea;
+
+$font-family: sans-serif;
+$font-size: 16px;
+$font-weight: 400;
+
+$line-height: 1.5em;
+
+/* ---------- GENERAL ---------- */
+
+* {
+  box-sizing: border-box;
+  
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+  
+}
+
+body {
+    background: $color-bg;
+    color: $color;
+  font: $font-weight #{$font-size}/#{$line-height} $font-family;
+    margin: 0;
+}
+
+h3 { margin: 0; }
+
+a {
+    color: #999;
+    text-decoration: none;
+}
+
+a:hover { color: #1dabb8; }
+
+fieldset {
+    border: none;
+    margin: 0;
+}
+
+input {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="submit"] { cursor: pointer; }
+
+.clearfix {
+  *zoom: 1;
+  
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+  
+  &:after {
+    clear: both;
+  }
+  
+}
+
+.container {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- LOGIN-FORM ---------- */
+
+#login-form {
+    width: 300px;
+}
+
+#login-form h3 {
+    background-color: #282830;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 14px;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#login-form fieldset {
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    padding: 20px;
+    position: relative;
+}
+
+#login-form fieldset:before {
+    background-color: #fff;
+    content: "";
+    height: 8px;
+    left: 50%;
+    margin: -4px 0 0 -4px;
+    position: absolute;
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 8px;
+}
+
+#login-form input {
+    font-size: 14px;
+}
+
+#login-form input[type="email"],
+#login-form input[type="password"] {
+    border: 1px solid #dcdcdc;
+    padding: 12px 10px;
+    width: 100%;
+}
+
+#login-form input[type="email"] {
+    border-radius: 3px 3px 0 0;
+}
+
+#login-form input[type="password"] {
+    border-top: none;
+    border-radius: 0px 0px 3px 3px;
+}
+
+#login-form input[type="submit"] {
+    background: #1dabb8;
+    border-radius: 3px;
+    color: #fff;
+    float: right;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 12px 20px;
+}
+
+#login-form input[type="submit"]:hover { background: #198d98; }
+
+#login-form footer {
+    font-size: 12px;
+    margin-top: 16px;
+}
+
+.info {
+    background: #e5e5e5;
+    border-radius: 50%;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 10px 0 0;
+    text-align: center;
+    width: 20px;
+}
+.but{
+  background-color: transparent !important;
+
+
+}
+   </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">InsaRise</a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> <a href="{{path('insa_rise_inscrip_homepage')}}" >Not a member yet ?</a>
+<button href="#" data-toggle="modal"  data-target="#myModal" class="btn btn-danger square-btn-adjust btn-primary btn-lg">Login</button> </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login Form</h4>
+      </div>
+      <div class="modal-body">
+        <form  method="POST" action="{{path('insarise_login_homepage')}}"class="form-inline">
+  <div class="form-group">
+    <label class="sr-only"  for="exampleInputEmail3">Username</label>
+    <input type="text"  name="login" class="form-control" id="exampleInputEmail3" placeholder="Login">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword3">Password</label>
+    <input type="password"   name="password"class="form-control" id="exampleInputPassword3" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-default">Sign in</button>
+</form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img src="{{ asset('bundles/insarise/assets/img/find_user.png') }}" class="user-image img-responsive"/>
+                    </li>
+                
+                    
+                    <li>
+                        <a   href="{{path('insarise_form_homepage')}}"><i class="fa fa-dashboard fa-3x"></i> HomePage</a>
+                    </li>
+                
+                           <li  >
+                        <a   href="{{path('insarise_chart_homepage')}}"><i class="fa fa-bar-chart-o fa-3x"></i> Our Charts</a>
+                    </li>   
+                      <li  >
+                        <a  href="{{path('insarise_liste_homepage')}}"><i class="fa fa-table fa-3x"></i> 
+Subscriber
+</a>
+                    </li>
+                    <li  >
+                        <a  class="active-menu" href="{{path('insa_rise_inscrip_homepage')}}"><i class="fa fa-edit fa-3x"></i> Sign up </a>
+                    </li>               
+                
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+        
+        <center>
+
+<button  href="#" data-toggle="modal"  data-target="#myModal_1" class=" but btn btn-danger square-btn-adjust btn-primary btn-lg"><img src="{{ asset('bundles/insarisemessaging/images/student.png') }}"  /></button> 
+<div class="modal fade" id="myModal_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login Form</h4>
+      </div>
+      <div class="modal-body">
+   <form  method="POST" action="{{path('insa_rise_inscrip_student')}}"class="form-inline">
+  <div class="form-group">
+    <label class="sr-only"  for="exampleInputEmail3">Login</label>
+    <input type="text"  name="login" class="form-control" id="exampleInputEmail3" placeholder="Login">
+  </div></br>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword3">Password</label>
+    <input type="password"   name="password"class="form-control" id="exampleInputPassword3" placeholder="Password">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="first">FirstName</label>
+    <input type="text"   name="first"class="form-control" id="first" placeholder="FirstName">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="last">LastName</label>
+    <input type="text"   name="last"class="form-control" id="last" placeholder="LastName">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="mail">E-mail</label>
+    <input type="email"   name="mail"class="form-control" id="mail" placeholder="E-mail">
+  </div></br>
+   <div class="form-group">
+    <label class="sr-only" for="tel">Phone Number</label>
+    <input type="text"   name="tel"class="form-control" id="tel" placeholder="Phone Number">
+  </div></br>
+   <div class="form-group">
+    <label class="sr-only" for="adress">Adress</label>
+    <input type="text"   name="adress"class="form-control" id="adress" placeholder="Adress">
+  </div></br>
+  <button type="submit" class="btn btn-default">Sign in</button>
+</form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button href="#" data-toggle="modal" data-target="#myModal_2" class=" but btn btn-danger square-btn-adjust btn-primary btn-lg"> <img src="{{ asset('bundles/insarisemessaging/images/entreprise.png') }}"  /></button> 
+<div class="modal fade" id="myModal_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login Form</h4>
+      </div>
+      <div class="modal-body">
+                <form  method="POST" action="{{path('insa_rise_inscrip_entreprise')}}"class="form-inline">
+  <div class="form-group">
+    <label class="sr-only"  for="exampleInputEmail3">Login</label>
+    <input type="text"  name="login" class="form-control" id="exampleInputEmail3" placeholder="Login">
+  </div></br>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword3">Password</label>
+    <input type="password"   name="password"class="form-control" id="exampleInputPassword3" placeholder="Password">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="full">Full Name</label>
+    <input type="text"   name="full"class="form-control" id="full" placeholder="Full Name">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="manager">Manager Name</label>
+    <input type="text"   name="manager"class="form-control" id="manager" placeholder="manager">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="mail">E-mail</label>
+    <input type="email"   name="mail"class="form-control" id="mail" placeholder="E-mail">
+  </div></br>
+   <div class="form-group">
+    <label class="sr-only" for="adress">Adress</label>
+    <input type="text"   name="adress"class="form-control" id="adress" placeholder="Adress">
+  </div></br>
+   <div class="form-group">
+    <label class="sr-only" for="desc">Description</label>
+    <textarea class="form-control" name="desc" placeholder="How can you describe it?" rows="3"></textarea>
+  </div></br>
+  <button type="submit" class="btn btn-default">Sign in</button>
+</form>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+
+<button href="#" data-toggle="modal"  data-target="#myModal_3" class=" but btn btn-danger square-btn-adjust btn-primary btn-lg"><img src="{{ asset('bundles/insarisemessaging/images/club.png') }}" /></button> 
+<div class="modal fade" id="myModal_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Login Form</h4>
+      </div>
+      <div class="modal-body">
+  <form  method="POST" action="{{path('insa_rise_inscrip_club')}}"class="form-inline">
+  <div class="form-group">
+    <label class="sr-only"  for="exampleInputEmail3">Login</label>
+    <input type="text"  name="login" class="form-control" id="exampleInputEmail3" placeholder="Login">
+  </div></br>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword3">Password</label>
+    <input type="password"   name="password"class="form-control" id="exampleInputPassword3" placeholder="Password">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="first">Manager FirstName</label>
+    <input type="text"   name="first"class="form-control" id="first" placeholder="Manager FirstName">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="last">Manager LastName</label>
+    <input type="text"   name="last"class="form-control" id="last" placeholder="Manager LastName">
+  </div></br>
+    <div class="form-group">
+    <label class="sr-only" for="mail">E-mail</label>
+    <input type="email"   name="mail"class="form-control" id="mail" placeholder="E-mail">
+  </div></br>
+   <div class="form-group">
+    <label class="sr-only" for="tel">Phone Number</label>
+    <input type="text"   name="tel"class="form-control" id="tel" placeholder="Phone Number">
+  </div></br>
+   <div class="form-group">
+    <label class="sr-only" for="adress">Adress</label>
+    <input type="text"   name="adress"class="form-control" id="adress" placeholder="Adress">
+  </div></br>
+  <button type="submit" class="btn btn-default">Sign in</button>
+</form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+</center>
+
+
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+     <script  src="{{ asset('bundles/insarise/assets/js/jquery-1.10.2.js') }}" ></script>
+       <!-- BOOTSTRAP SCRIPTS -->
+         <script  src="{{ asset('bundles/insarise/assets/js/bootstrap.min.js') }}" ></script>
+    <!-- METISMENU SCRIPTS -->
+      <script  src="{{ asset('bundles/insarise/assets/js/jquery.metisMenu.js') }}" ></script>
+     <!-- MORRIS CHART SCRIPTS -->
+       <script  src="{{ asset('bundles/insarise/assets/js/morris/raphael-2.1.0.min.js') }}" ></script>
+         <script  src="{{ asset('bundles/insarise/assets/js/morris/morris.js') }}" ></script>
+
+      <!-- CUSTOM SCRIPTS -->
+        <script  src="{{ asset('bundles/insarise/assets/js/custom.js') }}" ></script>
+
+    
+   
+</body>
+</html>

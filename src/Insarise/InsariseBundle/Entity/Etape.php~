@@ -1,0 +1,83 @@
+<?php
+
+namespace Insarise\InsariseBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Etape
+ *
+ * @ORM\Table(name="etape", indexes={@ORM\Index(name="fk_etape_projet", columns={"id_proj_et"}), @ORM\Index(name="fk_etape_entreprise", columns={"id_ent_et"}), @ORM\Index(name="fk_etape_etud", columns={"id_cand_et"})})
+ * @ORM\Entity
+ */
+class Etape
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_et", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_et", type="string", length=50, nullable=true)
+     */
+    private $nomEt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description_et", type="string", length=50, nullable=true)
+     */
+    private $descriptionEt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_achevement_et", type="date", nullable=true)
+     */
+    private $dateAchevementEt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datevalidation_et", type="date", nullable=true)
+     */
+    private $datevalidationEt;
+
+    /**
+     * @var \Entreprise
+     *
+     * @ORM\ManyToOne(targetEntity="Entreprise")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_ent_et", referencedColumnName="id_ent")
+     * })
+     */
+    private $idEntEt;
+
+    /**
+     * @var \Candidat
+     *
+     * @ORM\ManyToOne(targetEntity="Candidat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_cand_et", referencedColumnName="id_cand")
+     * })
+     */
+    private $idCandEt;
+
+    /**
+     * @var \Projet
+     *
+     * @ORM\ManyToOne(targetEntity="Projet")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_proj_et", referencedColumnName="id_proj")
+     * })
+     */
+    private $idProjEt;
+
+
+}

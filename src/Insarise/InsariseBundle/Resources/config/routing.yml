@@ -1,0 +1,120 @@
+insarise_form_homepage:
+    path:     /
+    defaults: { _controller: InsariseBundle:Insarise:index }
+insarise_login_homepage:
+    path:     /form
+    defaults: { _controller: InsariseBundle:Insarise:connect }
+insarise_logout_homepage:
+    path:     /logout
+    defaults: { _controller: InsariseBundle:Insarise:deconnect }
+insarise_allprojects_homepage:
+    path:     /getall
+    defaults: { _controller: InsariseBundle:Insarise:getall }
+insarise_someprojects_homepage:
+    path:     /someproject
+    defaults: { _controller: InsariseBundle:Insarise:somep }
+insarise_register_homepage:
+    path:     /register
+    defaults: { _controller: InsariseBundle:Insarise:register }
+insarise_liste_homepage:
+    path:     /liste
+    defaults: { _controller: InsariseBundle:Insarise:list }
+insarise_apply_homepage:
+    path:     /getmore
+    defaults: { _controller: InsariseBundle:Insarise:getmore }
+insarise_apply_some_homepage:
+    path:     /getmoreS
+    defaults: { _controller: InsariseBundle:Insarise:getmoreS }
+insarise_confirm_homepage:
+    path:     /confirm
+    defaults: { _controller: InsariseBundle:Insarise:confirm }
+insarise_approuve_homepage:
+    path:     /moderator
+    defaults: { _controller: InsariseBundle:Insarise:moderator }
+insarise_setting_homepage:
+    path:     /setting
+    defaults: { _controller: InsariseBundle:Insarise:set }
+insarise_approuver_homepage:
+    path:     /approve
+    defaults: { _controller: InsariseBundle:Insarise:approve }
+insarise_mineprojects_homepage:
+    path:     /minep
+    defaults: { _controller: InsariseBundle:Insarise:mine }
+insarise_myprojects_homepage:
+    path:     /myprojects
+    defaults: { _controller: InsariseBundle:Insarise:setEt }
+insarise_getdata_homepage:
+    path:     /data
+    defaults: { _controller: InsariseBundle:Insarise:data }
+insarise_terminer_homepage:
+    path:     /task
+    defaults: { _controller: InsariseBundle:Insarise:task }
+insarise_inscrip_homepage:
+    path:     /inscript
+    defaults: { _controller: InsariseBundle:Insarise:approve }
+insarise_chart_homepage:
+    path:     /chart
+    defaults: { _controller: InsariseBundle:Insarise:inscrip }
+insarise_listAll_homepage:
+    path:     /listAll
+    defaults: { _controller: InsariseBundle:Insarise:listAll }
+insarise_setProfile_homepage:
+    path:     /setP
+    defaults: { _controller: InsariseBundle:Insarise:setP }
+insarise_submit_homepage:
+    path:     /submit
+    defaults: { _controller: InsariseBundle:Insarise:submit }
+entreprise_FormE:
+    path:     /addE
+    defaults: { _controller: InsariseBundle:Entreprise:index}
+entreprise_registerE:
+    path:     /registerE
+    defaults: { _controller: InsariseBundle:Entreprise:register}
+entreprise_list:
+    path:     /list
+    defaults: { _controller: InsariseBundle:Entreprise:list}
+entreprise_set:
+    path:     /set
+    defaults: { _controller: InsariseBundle:Entreprise:set}
+entreprise_add:
+    path:     /add
+    defaults: { _controller: InsariseBundle:Entreprise:add}
+entreprise_choose:
+    path:     /choose
+    defaults: { _controller: InsariseBundle:Entreprise:choose}
+entreprise_logout:
+    path:     /logout
+    defaults: { _controller: InsariseBundle:Entreprise:logout}
+entreprise_insert:
+    path:     /insert
+    defaults: { _controller: InsariseBundle:Entreprise:insert}
+entreprise_setET:
+    path:     /setET
+    defaults: { _controller: InsariseBundle:Entreprise:setEt}
+entreprise_validEt:
+    path:     /validEt
+    defaults: { _controller: InsariseBundle:Entreprise:validEt}
+entreprise_cntl:
+    path:     /cntlEt
+    defaults: { _controller: InsariseBundle:Entreprise:cntlEt}
+entreprise_cntrEtape:
+    path:     /cntrEtape
+    defaults: { _controller: InsariseBundle:Entreprise:EntEt}
+entreprise_validate:
+    path:     /validate
+    defaults: { _controller: InsariseBundle:Entreprise:validate}
+data_info:
+    path:     /seePro
+    defaults: { _controller: InsariseBundle:Entreprise:seePro}
+fini_entreprise:
+    path:     /fini
+    defaults: { _controller: InsariseBundle:Entreprise:fini}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+User:
+    type: entity
+    table: user
+    uniqueConstraints:
+        UNIQ_8D93D649AA08CB10:
+            columns:
+                - login
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        login:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+        pwd:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+    lifecycleCallbacks: {  }

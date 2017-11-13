@@ -1,0 +1,61 @@
+<?php
+
+namespace Insarise\MessagingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Competence
+ *
+ * @ORM\Table(name="competence")
+ * @ORM\Entity
+ */
+class Competence
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_com", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_com", type="string", length=50, nullable=true)
+     */
+    private $nomCom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description_com", type="text", length=65535, nullable=true)
+     */
+    private $descriptionCom;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Candidat", mappedBy="idComEc")
+     */
+    private $idCandEc;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Projet", mappedBy="idComPc")
+     */
+    private $idProjPc;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idCandEc = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idProjPc = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

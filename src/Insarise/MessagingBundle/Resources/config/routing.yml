@@ -1,0 +1,33 @@
+insa_rise_messaging_homepage:
+    path:     /my_messages
+    defaults: { _controller: InsariseMessagingBundle:Messaging:display_messages }
+insa_rise_send_messaging_homepage:
+    path:     /write_msg
+    defaults: { _controller: InsariseMessagingBundle:Messaging:send_message }
+insarise_send_messaging_homepage:
+    path:     /send
+    defaults: { _controller: InsariseMessagingBundle:Messaging:send}
+insa_rise1_messaging_homepage:
+    path:     /send
+    defaults: { _controller: InsariseMessagingBundle:Messaging:display_messages}
+insa_rise_inscrip_homepage:
+    path:     /formI
+    defaults: { _controller: InsariseMessagingBundle:Messaging:inscription_Choice}
+insa_rise_inscrip_student:
+    path:     /inscriEt
+    defaults: { _controller: InsariseMessagingBundle:Messaging:inscription_Etudiant}
+insa_rise_inscrip_club:
+    path:     /inscriC
+    defaults: { _controller: InsariseMessagingBundle:Messaging:inscription_Club}
+insa_rise_inscrip_entreprise:
+    path:     /InscriE
+    defaults: { _controller: InsariseMessagingBundle:Messaging:inscription_Entreprise}
+add_comp:
+    path:     /addCo
+    defaults: { _controller: InsariseMessagingBundle:Messaging:addCo}
+
+
+
+
+
+

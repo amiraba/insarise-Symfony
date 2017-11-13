@@ -1,0 +1,76 @@
+
+<script  src="{{ asset('bundles/insarise/js/form_inscrip.js') }}" ></script>
+<div align="center" style="color:grey ">
+
+<h1>Sign In</h1> <br> <br><br> <br>
+<br> <br>
+
+</div>
+
+<div align="center" >
+ <img src="{{ asset('bundles/insarise/images/student.png') }}"  >
+
+<a href="#" onclick="etudiant();">
+</a>
+ </img>
+
+ <img src="{{ asset('bundles/insarise/images/entreprise.png') }}"  >
+
+<a href="#" onclick="enterprise();">
+</a>
+</img>
+
+
+ <img src="{{ asset('bundles/insarise/images/club.png') }}"  >
+<a href="#" onclick="club();">
+</a>
+</img>
+<br><br><br><br>
+
+</div>
+<div align="center" id="etud" style="display:none;" >
+<form action="{{ path('insa_rise_inscrip_student') }}" method="post" {{ form_enctype(form) }}>
+{{ form_row(form.loginEtud, {'label': "Login of the student"}) }} 
+{{ form_row(form.passwordEtud, {'label': "Password of the student"}) }} 
+{{ form_row(form.nomEtud, {'label': "Name of the student"}) }} 
+{{ form_row(form.prenomEtud, {'label': "Surname of the student"}) }} 
+{{ form_row(form.emailEtud, {'label': "Email of the student"}) }}
+{{ form_row(form.telephoneEtud, {'label': "Telephone of the student"}) }}
+{{ form_row(form.adresseEtud, {'label': "Address of the student"}) }}
+{{ form_row(form.Sign_in, {'label': "Sign in"}) }}
+</form>
+ 
+
+ </div>
+
+<div align="center" id="ent" style="display:none;" >
+<form  action="{{ path('insa_rise_inscrip_entreprise') }}" method="post" {{ form_enctype(form) }}>
+{{ form_row(form1.loginEnt, {'label': "Login of the enterprise"}) }} 
+{{ form_row(form1.passwordEnt, {'label': "Password of the enterprise"}) }} 
+{{ form_row(form1.nomEnt, {'label': "Name of the enterprise"}) }} 
+{{ form_row(form1.nomResponsableEnt, {'label': "name of the enterprise manager"}) }} 
+{{ form_row(form1.emailEnt, {'label': "Email of the enterprise"}) }}
+{{ form_row(form1.adresseEnt, {'label': "Address of the enterprise"}) }}
+{{ form_row(form1.descriptionEnt, {'label': "description of the enterprise"}) }}  
+{{ form_row(form1.Sign_in1, {'label': "Sign in"}) }}
+
+ </form>
+
+
+ </div>
+
+ <div align="center" id="clb" style="display:none;" >
+<form   action="{{ path('insa_rise_inscrip_club') }}" method="post" {{ form_enctype(form) }}>
+{{ form_row(form2.loginEtud, {'label': "Login of the club"}) }} 
+{{ form_row(form2.passwordEtud, {'label': "Password of the club"}) }} 
+{{ form_row(form2.nomEtud, {'label': "Name of the club"}) }} 
+{{ form_row(form2.prenomEtud, {'label': "Surname of the student"}) }} 
+{{ form_row(form2.emailEtud, {'label': "Email of the student"}) }}
+{{ form_row(form2.telephoneEtud, {'label': "Telephone of the student"}) }}
+{{ form_row(form2.adresseEtud, {'label': "Address of the student"}) }}
+{{ form_row(form2.Sign_in2, {'label': "Sign in"}) }}
+
+ </form>
+
+
+ </div>

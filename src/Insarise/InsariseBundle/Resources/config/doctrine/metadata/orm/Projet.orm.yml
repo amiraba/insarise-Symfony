@@ -1,0 +1,75 @@
+Projet:
+    type: entity
+    table: projet
+    indexes:
+        fk_projet_ent:
+            columns:
+                - id_ent_proj
+    id:
+        idProj:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_proj
+            generator:
+                strategy: IDENTITY
+    fields:
+        idCandProj:
+            type: integer
+            nullable: true
+            unsigned: true
+            column: id_cand_proj
+        nomProj:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: nom_proj
+        descriptionProj:
+            type: text
+            nullable: true
+            length: 65535
+            fixed: false
+            column: description_proj
+        statutProj:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+            column: statut_proj
+    manyToOne:
+        idEntProj:
+            targetEntity: Entreprise
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_ent_proj:
+                    referencedColumnName: id_ent
+            orphanRemoval: false
+    manyToMany:
+        idModAp:
+            targetEntity: Moderateur
+            cascade: {  }
+            mappedBy: idProjAp
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        idComPc:
+            targetEntity: Competence
+            cascade: {  }
+            mappedBy: null
+            inversedBy: idProjPc
+            joinTable:
+                name: projet_competence
+                joinColumns:
+                    -
+                        name: id_proj_pc
+                        referencedColumnName: id_proj
+                inverseJoinColumns:
+                    -
+                        name: id_com_pc
+                        referencedColumnName: id_com
+            orderBy: null
+    lifecycleCallbacks: {  }

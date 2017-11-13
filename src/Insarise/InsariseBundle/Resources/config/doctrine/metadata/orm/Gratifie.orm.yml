@@ -1,0 +1,43 @@
+Gratifie:
+    type: entity
+    table: gratifie
+    indexes:
+        fk_grat_ent:
+            columns:
+                - id_ent
+        fk_grat_etud:
+            columns:
+                - id_cand
+        fk_grat_ach:
+            columns:
+                - id_ach
+    id:
+        idProj:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_proj
+        idEnt:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_ent
+        idCand:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_cand
+        idAch:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_ach
+    fields:
+        date:
+            type: date
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,4 @@
+services:
+#    insarise_messaging.example:
+#        class: Insarise\MessagingBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

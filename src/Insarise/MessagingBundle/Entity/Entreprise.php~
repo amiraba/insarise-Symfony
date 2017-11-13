@@ -1,0 +1,74 @@
+<?php
+
+namespace Insarise\MessagingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Entreprise
+ *
+ * @ORM\Table(name="entreprise")
+ * @ORM\Entity
+ */
+class Entreprise
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_ent", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEnt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="login_ent", type="string", length=50, nullable=true)
+     */
+    private $loginEnt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password_ent", type="string", length=50, nullable=true)
+     */
+    private $passwordEnt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_ent", type="string", length=50, nullable=true)
+     */
+    private $nomEnt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_responsable_ent", type="string", length=255, nullable=true)
+     */
+    private $nomResponsableEnt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_ent", type="string", length=50, nullable=true)
+     */
+    private $emailEnt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse_ent", type="string", length=255, nullable=true)
+     */
+    private $adresseEnt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description_ent", type="text", length=65535, nullable=true)
+     */
+    private $descriptionEnt;
+
+
+}

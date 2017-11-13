@@ -1,0 +1,61 @@
+Moderateur:
+    type: entity
+    table: moderateur
+    id:
+        idMod:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_mod
+            generator:
+                strategy: IDENTITY
+    fields:
+        loginMod:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: login_mod
+        passwordMod:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: password_mod
+        nomMod:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: nom_mod
+        prenomMod:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: prenom_mod
+        emailMod:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: email_mod
+    manyToMany:
+        idProjAp:
+            targetEntity: Projet
+            cascade: {  }
+            mappedBy: null
+            inversedBy: idModAp
+            joinTable:
+                name: approbation
+                joinColumns:
+                    -
+                        name: id_mod_ap
+                        referencedColumnName: id_mod
+                inverseJoinColumns:
+                    -
+                        name: id_proj_ap
+                        referencedColumnName: id_proj
+            orderBy: null
+    lifecycleCallbacks: {  }

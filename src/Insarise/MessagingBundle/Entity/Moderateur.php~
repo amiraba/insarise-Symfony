@@ -1,0 +1,82 @@
+<?php
+
+namespace Insarise\MessagingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Moderateur
+ *
+ * @ORM\Table(name="moderateur")
+ * @ORM\Entity
+ */
+class Moderateur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_mod", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idMod;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="login_mod", type="string", length=50, nullable=true)
+     */
+    private $loginMod;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password_mod", type="string", length=50, nullable=true)
+     */
+    private $passwordMod;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_mod", type="string", length=50, nullable=true)
+     */
+    private $nomMod;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom_mod", type="string", length=50, nullable=true)
+     */
+    private $prenomMod;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_mod", type="string", length=50, nullable=true)
+     */
+    private $emailMod;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Projet", inversedBy="idModAp")
+     * @ORM\JoinTable(name="approbation",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_mod_ap", referencedColumnName="id_mod")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_proj_ap", referencedColumnName="id_proj")
+     *   }
+     * )
+     */
+    private $idProjAp;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idProjAp = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

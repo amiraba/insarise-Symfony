@@ -1,0 +1,56 @@
+Entreprise:
+    type: entity
+    table: entreprise
+    id:
+        idEnt:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_ent
+            generator:
+                strategy: IDENTITY
+    fields:
+        loginEnt:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: login_ent
+        passwordEnt:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: password_ent
+        nomEnt:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: nom_ent
+        nomResponsableEnt:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            column: nom_responsable_ent
+        emailEnt:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: email_ent
+        adresseEnt:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            column: adresse_ent
+        descriptionEnt:
+            type: text
+            nullable: true
+            length: 65535
+            fixed: false
+            column: description_ent
+    lifecycleCallbacks: {  }

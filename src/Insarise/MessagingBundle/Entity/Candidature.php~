@@ -1,0 +1,34 @@
+<?php
+
+namespace Insarise\MessagingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Candidature
+ *
+ * @ORM\Table(name="candidature", indexes={@ORM\Index(name="id_proj_candid", columns={"id_proj_candid"})})
+ * @ORM\Entity
+ */
+class Candidature
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_cand_candid", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idCandCandid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_proj_candid", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idProjCandid;
+
+
+}

@@ -1,0 +1,21 @@
+Candidature:
+    type: entity
+    table: candidature
+    indexes:
+        id_proj_candid:
+            columns:
+                - id_proj_candid
+    id:
+        idCandCandid:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_cand_candid
+        idProjCandid:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_proj_candid
+    lifecycleCallbacks: {  }

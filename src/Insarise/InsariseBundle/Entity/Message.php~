@@ -1,0 +1,81 @@
+<?php
+
+namespace Insarise\InsariseBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Message
+ *
+ * @ORM\Table(name="message", indexes={@ORM\Index(name="fk_emetteur", columns={"id_emetteur_mes"}), @ORM\Index(name="fk_destinataire", columns={"id_destinataire_mes"})})
+ * @ORM\Entity
+ */
+class Message
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_mes", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idMes;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_emetteur_mes", type="integer", nullable=false)
+     */
+    private $idEmetteurMes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type_emetteur_mes", type="string", nullable=false)
+     */
+    private $typeEmetteurMes;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_destinataire_mes", type="integer", nullable=false)
+     */
+    private $idDestinataireMes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type_destinataire_mes", type="string", nullable=false)
+     */
+    private $typeDestinataireMes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre_mes", type="string", length=50, nullable=true)
+     */
+    private $titreMes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu_mes", type="text", length=65535, nullable=true)
+     */
+    private $contenuMes;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateenvoi_mes", type="date", nullable=true)
+     */
+    private $dateenvoiMes;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datelecture_mes", type="date", nullable=true)
+     */
+    private $datelectureMes;
+
+
+}

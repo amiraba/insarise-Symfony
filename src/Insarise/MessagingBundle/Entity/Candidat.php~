@@ -1,0 +1,103 @@
+<?php
+
+namespace Insarise\MessagingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Candidat
+ *
+ * @ORM\Table(name="candidat", indexes={@ORM\Index(name="fk_estdetype", columns={"type_cand"})})
+ * @ORM\Entity
+ */
+class Candidat
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_cand", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="login_cand", type="string", length=50, nullable=false)
+     */
+    private $loginCand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password_cand", type="string", length=50, nullable=false)
+     */
+    private $passwordCand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_cand", type="string", length=50, nullable=true)
+     */
+    private $nomCand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom_cand", type="string", length=50, nullable=true)
+     */
+    private $prenomCand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_cand", type="string", length=50, nullable=true)
+     */
+    private $emailCand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone_cand", type="string", length=50, nullable=true)
+     */
+    private $telephoneCand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse_cand", type="string", length=255, nullable=true)
+     */
+    private $adresseCand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type_cand", type="string", nullable=false)
+     */
+    private $typeCand;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Competence", inversedBy="idCandEc")
+     * @ORM\JoinTable(name="candidat_competence",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_cand_ec", referencedColumnName="id_cand")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_com_ec", referencedColumnName="id_com")
+     *   }
+     * )
+     */
+    private $idComEc;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idComEc = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

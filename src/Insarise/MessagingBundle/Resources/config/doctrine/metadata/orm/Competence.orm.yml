@@ -1,0 +1,41 @@
+Competence:
+    type: entity
+    table: competence
+    id:
+        idCom:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: id_com
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomCom:
+            type: string
+            nullable: true
+            length: 50
+            fixed: false
+            column: nom_com
+        descriptionCom:
+            type: text
+            nullable: true
+            length: 65535
+            fixed: false
+            column: description_com
+    manyToMany:
+        idCandEc:
+            targetEntity: Candidat
+            cascade: {  }
+            mappedBy: idComEc
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        idProjPc:
+            targetEntity: Projet
+            cascade: {  }
+            mappedBy: idComPc
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

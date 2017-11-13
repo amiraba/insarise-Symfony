@@ -1,0 +1,117 @@
+
+        <link rel="shortcut icon" href="{{ asset('bundles/insarise/../favicon.ico') }}"> 
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/insarise/css/demo.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/insarise/css/style.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/insarise/css/animate-custom.css') }}" />
+    </head>
+    <body>
+    <a href="{{path('entreprise_FormE')}}">Register as a company</a>
+        <div class="container">
+            <!-- Codrops top bar -->
+            <div class="codrops-top">
+              
+               
+                <div class="clr"></div>
+            </div><!--/ Codrops top bar -->
+            <header>
+                <h1>Login and Registration Form <span>with INSARISE</span></h1>
+                <nav class="codrops-demos">
+                   
+                </nav>
+            </header>
+            <section>               
+                <div id="container_demo" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  method="POST" action="{{path('insarise_login_homepage')}}" autocomplete="on"> 
+                                <h1>Log in</h1> 
+                                <p> 
+                                    <label for="username" class="uname" data-icon="u" > Your username </label>
+                                    <input id="username" name="login" required="required" type="text" placeholder="myusername"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                                </p>
+                                <p class="keeplogin"> 
+                                    <input type="checkbox" name="type" id="loginkeeping" value="indiv"  checked /> 
+                                    <label for="loginkeeping">Student</label>
+                                </p>
+                                  <p class="keeplogin"> 
+                                    <input type="checkbox" name="type" id="loginkeeping" value="club" /> 
+                                    <label for="loginkeeping">Club</label>
+                                </p>
+                                <p class="keeplogin"> 
+                                    <input type="checkbox" name="type" id="loginkeeping" value="entrep" /> 
+                                    <label for="loginkeeping">Entreprise</label>
+                                </p>
+                                 <p class="keeplogin"> 
+                                    <input type="checkbox" name="type" id="loginkeeping" value="other" /> 
+                                    <label for="loginkeeping">Other</label>
+                                </p>
+                                <p class="login button"> 
+                                    <input type="submit" value="Login" /> 
+                                </p>
+                                <p class="change_link">
+                                    Not a member yet ?
+                                    <a href="#toregister" class="to_register">Join us</a>
+                                </p>
+                            </form>
+                        </div>
+
+                        <div id="register" class="animate form">
+                            <form  method="POST" action="{{path('insarise_register_homepage')}}" autocomplete="on"> 
+                                <h1> Sign up </h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+                                    <input id="usernamesignup" name="login" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                  <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u">First Name</label>
+                                    <input id="usernamesignup" name="prenom" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                  <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u">Last Name</label>
+                                    <input id="usernamesignup" name="nom" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon="@" > Your email</label>
+                                    <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+                                    <input id="passwordsignup_confirm" name="password1" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon="oo" > Phone</label>
+                                    <input id="emailsignup" name="tel" required="required" type="text" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon="e" >Adress</label>
+                                    <input id="emailsignup" name="adresse" required="required" type="text" placeholder="mysupermail@mail.com"/> 
+                                </p>
+
+                                <p class="signin button"> 
+                                    <input type="submit" value="Sign up"/> 
+                                </p>
+                                <p class="change_link">  
+                                    Already a member ?
+                                    <a href="#tologin" class="to_register"> Go and log in </a>
+                                </p>
+                              
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>

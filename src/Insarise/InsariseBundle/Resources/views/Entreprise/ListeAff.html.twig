@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InsaRise</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+     <link rel='stylesheet' href="{{ asset('bundles/insarise/assets/css/bootstrap.css') }}"> 
+     <link  rel='stylesheet' href="{{ asset('bundles/insarise/assets/css/font-awesome.css') }}"> 
+      <link rel='stylesheet' href="{{ asset('bundles/insarise/assets/js/morris/morris-0.4.3.min.css') }}"> 
+     <link rel='stylesheet' href="{{ asset('bundles/insarise/assets/css/custom.css') }}">
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <style type="text/css">
+body {
+  background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);
+  color: #444;
+  font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
+  text-shadow: 0 1px 0 #fff;
+   font-family: sans-serif;
+font-size: 16px;
+font-weight: 400;
+}
+
+strong {
+  font-weight: bold; 
+}
+
+em {
+  font-style: italic; 
+}
+
+table {
+  background: #f5f5f5;
+  border-collapse: separate;
+  box-shadow: inset 0 1px 0 #fff;
+  font-size: 12px;
+  line-height: 24px;
+  margin: 30px auto;
+  text-align: left;
+  width: 800px;
+} 
+
+th {
+  background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+  border-left: 1px solid #555;
+  border-right: 1px solid #777;
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #333;
+  box-shadow: inset 0 1px 0 #999;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  position: relative;
+  text-shadow: 0 1px 0 #000;  
+}
+
+th:after {
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+  content: '';
+  display: block;
+  height: 25%;
+  left: 0;
+  margin: 1px 0 0 0;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+}
+
+th:first-child {
+  border-left: 1px solid #777;  
+  box-shadow: inset 1px 1px 0 #999;
+}
+
+th:last-child {
+  box-shadow: inset -1px 1px 0 #999;
+}
+
+td {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #e8e8e8;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 15px;
+  position: relative;
+  transition: all 300ms;
+}
+
+td:first-child {
+  box-shadow: inset 1px 0 0 #fff;
+} 
+
+td:last-child {
+  border-right: 1px solid #e8e8e8;
+  box-shadow: inset -1px 0 0 #fff;
+} 
+
+tr {
+  background: url(http://jackrugile.com/images/misc/noise-diagonal.png);  
+}
+
+tr:nth-child(odd) td {
+  background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);  
+}
+
+tr:last-of-type td {
+  box-shadow: inset 0 -1px 0 #fff; 
+}
+
+tr:last-of-type td:first-child {
+  box-shadow: inset 1px -1px 0 #fff;
+} 
+
+tr:last-of-type td:last-child {
+  box-shadow: inset -1px -1px 0 #fff;
+} 
+
+tbody:hover td {
+  color: transparent;
+  text-shadow: 0 0 3px #aaa;
+}
+
+tbody:hover tr:hover td {
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+}
+.bouton {
+display:block;
+width:100px;
+line-height:50px;
+text-align:center;
+vertical-align:middle;
+background-color:#bdc3c7;
+color:black;
+font-weight:bold;
+text-decoration:none;
+ border-radius: 10px;
+}
+.bouton a:hover {
+background:url(images/bouton-noir-2.png) no-repeat;
+}
+         .alert-box {
+    color:#555;
+    border-radius:10px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+    padding:10px 10px 10px 36px;
+    margin:10px;
+}
+.alert-box span {
+    font-weight:bold;
+    text-transform:uppercase;
+}
+.error {
+    background:#ffecec url('images/error.png') no-repeat 10px 50%;
+    border:1px solid #f5aca6;
+}
+.success {
+    background:#e9ffd9 url('images/success.png') no-repeat 10px 50%;
+    border:1px solid #a6ca8a;
+}
+#table{
+  width:500px;
+}
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Insarise</a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> <a href="{{path('insarise_logout_homepage')}}" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img src="{{ asset('bundles/insarise/assets/img/find_user.png') }}" class="user-image img-responsive"/>
+                    </li>
+                
+                    
+                    <li>
+                        <a   href="{{ path('entreprise_list') }}"><i class="fa fa-dashboard fa-3x"></i>Our projects</a>
+                    </li>
+                    <li>
+                        <a  href="{{ path('entreprise_choose',{ 'login' : app.session.get('login')} ) }}"><i class="fa fa-qrcode fa-3x"></i> choose a student</a>
+                    </li>
+                     <li>
+                        <a  href="{{path('entreprise_add')}}"><i class="fa fa-table fa-3x"></i> add a project </a>
+                    </li>
+                     <li>
+                        <a  class="active-menu"  href="{{path('entreprise_cntl')}}"><i class="fa fa-plus-circle fa-3x"></i>Progress of projects </a>
+                    </li>
+                    
+                                      
+                    
+                                       
+                    <li>
+                        <a href="#" ><i class="fa fa-envelope-o fa-fw  fa-3x"></i> Messaging service<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a  href="{{path('insa_rise_messaging_homepage')}}">My messages</a>
+                            </li>
+                            <li>
+                                <a href="{{path('insa_rise_send_messaging_homepage')}}">Send a message</a>
+                            </li>
+                          
+                        </ul>
+                      </li>  
+                  <li  >
+                        <a  href="{{path('insarise_setProfile_homepage')}}"><i class="fa fa-pencil-square-o  fa-3x"></i>Setting</a>
+                    </li>   
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+             
+          <table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Candidate</th>
+      <th>Show Progress</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+   {% for key,value  in matrice %}
+
+   
+    <tr>
+      <td><strong>{{ value.nomProj}}</strong></td>
+      <td> {{ value.descriptionProj }} </td>
+      <td> <a href="#">{{ key }}</a></td>
+      <td>
+      <button type="button"  onclick="getEtape({{value.idProj}})" class="bouton" data-toggle="modal" data-target="#myModal">
+  Validate
+</button></td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table id="table">
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">More Details</h4>
+      </div>
+      <div id="data" class="modal-body">
+        loading...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+function getEtape(id)
+{
+  $.ajax({
+       url : "{{ path('entreprise_cntrEtape')}}",
+       type : "POST",
+       data : "idp=" + id ,
+       success : function(code_html){ 
+         
+         $('#data').html(code_html);
+                 }
+    });
+}
+function methode(id,ind)
+{
+  $.ajax({
+       url : "{{ path('entreprise_validate')}}",
+       type : "POST",
+       data : "id=" + id +"&ind=" + ind,
+       success : function(code_html){ 
+         var id = "#";
+         var a = id + 1;
+         var h = id.concat(a);
+         var res = id.concat(id);
+         $(h).hide();
+        $(res).html('validated');
+                 }
+    });
+}
+</script>
+
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+     <script  src="{{ asset('bundles/insarise/assets/js/jquery-1.10.2.js') }}" ></script>
+       <!-- BOOTSTRAP SCRIPTS -->
+         <script  src="{{ asset('bundles/insarise/assets/js/bootstrap.min.js') }}" ></script>
+    <!-- METISMENU SCRIPTS -->
+      <script  src="{{ asset('bundles/insarise/assets/js/jquery.metisMenu.js') }}" ></script>
+     <!-- MORRIS CHART SCRIPTS -->
+       <script  src="{{ asset('bundles/insarise/assets/js/morris/raphael-2.1.0.min.js') }}" ></script>
+         <script  src="{{ asset('bundles/insarise/assets/js/morris/morris.js') }}" ></script>
+
+      <!-- CUSTOM SCRIPTS -->
+        <script  src="{{ asset('bundles/insarise/assets/js/custom.js') }}" ></script>
+
+    
+   
+</body>
+</html>
+
+

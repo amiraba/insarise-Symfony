@@ -1,0 +1,61 @@
+ <link rel="stylesheet" href="{{ asset('bundles/insarise/assets/css/styles.css') }}" />
+        
+        <!-- Including the Lobster font from Google's Font Directory -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster" />
+        
+        <!-- Enabling HTML5 support for Internet Explorer -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <style type="text/css">
+         .alert-box {
+    color:#555;
+    border-radius:10px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+    padding:10px 10px 10px 36px;
+    margin:10px;
+}
+.alert-box span {
+    font-weight:bold;
+    text-transform:uppercase;
+}
+.error {
+    background:#ffecec url('images/error.png') no-repeat 10px 50%;
+    border:1px solid #f5aca6;
+}
+.success {
+    background:#e9ffd9 url('images/success.png') no-repeat 10px 50%;
+    border:1px solid #a6ca8a;
+}
+        </style>
+    </head>
+    
+    <body>
+
+        <header>
+            <h1>Hello {{ app.session.get('login') }}</h1>
+            </br></br>
+            </br>
+            <a href="{{path('insa_rise_messaging_homepage')}}">My messages</a></br>
+            <a href="{{path('insa_rise_send_messaging_homepage')}}">Send a message</a>
+        </header>
+        {% if alert == 1 %}
+        </br></br></br>
+        <div class="alert-box error"><span>error: </span>{{msg}}</div>
+        {% endif %}
+        {% if alert == 2 %}
+        </br></br></br>
+<div class="alert-box success"><span>success: </span>{{msg }}</div>
+{% endif %}
+        <nav>
+            <ul class="fancyNav">
+                <li id="home"><a href="{{path('insarise_mineprojects_homepage')}}" class="homeIcon" >Home</a></li>
+                <li id="news"><a href="{{ path('insarise_allprojects_homepage') }}">Projects</a></li>
+                <li id="about"><a href="{{ path('insarise_someprojects_homepage',{ 'login' : app.session.get('login')} ) }}">Projects&skills</a></li>
+                <li id="services"><a href="{{path('insarise_logout_homepage')}}">Logout</a></li>
+            </ul>
+        </nav>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,11 @@
+insarise_messaging:
+    resource: "@InsariseMessagingBundle/Resources/config/routing.yml"
+    prefix:   /
+
+insarise:
+    resource: "@InsariseBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

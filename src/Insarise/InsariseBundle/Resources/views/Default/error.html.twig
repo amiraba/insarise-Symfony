@@ -1,0 +1,75 @@
+
+        <link rel="shortcut icon" href="{{ asset('bundles/insarise/../favicon.ico') }}"> 
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/insarise/css/demo.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/insarise/css/style.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/insarise/css/animate-custom.css') }}" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- Codrops top bar -->
+            <div class="codrops-top">
+              
+               
+                <div class="clr"></div>
+            </div><!--/ Codrops top bar -->
+            <header>
+                <h1>Error while registering <span>password isn't working</span></h1>
+                <nav class="codrops-demos">
+                   
+                </nav>
+            </header>
+            <section>               
+                <div id="container_demo" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                      
+                            <form  method="POST" action="{{path('insarise_register_homepage')}}" autocomplete="on"> 
+                                <h1> Sign up </h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+                                    <input id="usernamesignup" name="login" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                  <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u">First Name</label>
+                                    <input id="usernamesignup" name="prenom" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                  <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u">Last Name</label>
+                                    <input id="usernamesignup" name="nom" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon="@" > Your email</label>
+                                    <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+                                    <input id="passwordsignup_confirm" name="password1" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon="oo" > Phone</label>
+                                    <input id="emailsignup" name="tel" required="required" type="text" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon="e" >Adress</label>
+                                    <input id="emailsignup" name="adresse" required="required" type="text" placeholder="mysupermail@mail.com"/> 
+                                </p>
+
+                                <p class="signin button"> 
+                                    <input type="submit" value="Sign up"/> 
+                                </p>
+                               
+                            </form>
+                     
+                        
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>

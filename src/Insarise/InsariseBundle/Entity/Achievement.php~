@@ -1,0 +1,39 @@
+<?php
+
+namespace Insarise\InsariseBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Achievement
+ *
+ * @ORM\Table(name="achievement")
+ * @ORM\Entity
+ */
+class Achievement
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_ach", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAch;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_ach", type="string", length=50, nullable=true)
+     */
+    private $nomAch;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description_ach", type="string", length=255, nullable=true)
+     */
+    private $descriptionAch;
+
+
+}
